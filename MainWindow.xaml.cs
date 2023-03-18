@@ -33,5 +33,10 @@ namespace ToDoCalendar
                 txtName.Clear();
             }
         }
+
+        private void btnRemoveName_Click(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("remove");
+        }
     }
 }

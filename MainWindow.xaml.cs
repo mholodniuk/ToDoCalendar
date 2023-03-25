@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System;
+using System.Diagnostics;
+using System.Windows;
 using System.Windows.Input;
 
 namespace ToDoCalendar
@@ -11,6 +13,13 @@ namespace ToDoCalendar
         public MainWindow()
         {
             InitializeComponent();
+            using (var context = new CalendarContext())
+            {
+                foreach (var date in context.Dates)
+                {
+                    Console.WriteLine(date.Day);
+                }
+            }
         }
 
         private void Border_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)

@@ -44,5 +44,10 @@ namespace ToDoCalendar
             else
                 lblTime.Visibility = Visibility.Visible;
         }
+
+        private void btnRemoveName_Click(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("remove");
+        }
     }
 }

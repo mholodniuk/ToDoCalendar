@@ -61,6 +61,22 @@ namespace ToDoCalendar
                                 StartTime = "19:30",
                                 Done = false,
                                 DateID = 2
+                            },
+                            new Activity()
+                            {
+                                ID = 4,
+                                Name = "Skakanie",
+                                StartTime = "17:30",
+                                Done = true,
+                                DateID = 2
+                            },
+                            new Activity()
+                            {
+                                ID = 4,
+                                Name = "Jeżdzenie",
+                                StartTime = "7:15",
+                                Done = false,
+                                DateID = 2
                             }
                         }
                     }

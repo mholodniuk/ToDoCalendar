@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Globalization;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using ToDoCalendar.UserControls;
 
@@ -46,15 +45,21 @@ namespace ToDoCalendar
             foreach (var activity in activities)
             {
                 Item item = new Item();
+                Console.WriteLine(activity.Name);
                 item.SetActivity(activity);
                 arrayOfActivities.Children.Add(item);
             }
         }
 
-        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        private void Calendar_OnSelectedDatesChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (e.ChangedButton == MouseButton.Left)
-                this.DragMove();
+            var calendar = sender as Calendar;
+
+            if (calendar.SelectedDate.HasValue)
+            {
+                DateTime date = calendar.SelectedDate.Value;
+                this.Title = date.ToShortDateString();
+            }
         }
 
         private void lblNote_MouseDown(object sender, MouseButtonEventArgs e)
@@ -81,11 +86,6 @@ namespace ToDoCalendar
                 lblTime.Visibility = Visibility.Collapsed;
             else
                 lblTime.Visibility = Visibility.Visible;
-        }
-
-        private void ChangeCurrentMonth(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

@@ -35,10 +35,10 @@
                         <fa:ImageAwesome Icon="AngleLeft" Style="{StaticResource angle}"/>
                     </Button>
 
-                    <Button Content="2020" Style="{StaticResource button}"/>
-                    <Button Content="2021" Style="{StaticResource button}"/>
-                    <Button Content="2022" Style="{StaticResource button}" Foreground="#C73F69" FontSize="24"/>
-                    <Button Content="2023" Style="{StaticResource button}"/>
+                    <!--<Button Content="2020" Style="{StaticResource button}"/>-->
+                    <!--<Button Content="2021" Style="{StaticResource button}"/>-->
+                    <Button Content="2022" Style="{StaticResource button}" />
+                    <Button Content="2023" Style="{StaticResource button}" Foreground="#C73F69" FontSize="24"/>
                     <Button Content="2024" Style="{StaticResource button}"/>
 
                     <Button Style="{StaticResource button}">
@@ -48,9 +48,9 @@
 
                 <!--Month Selection-->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button Content="1" Style="{StaticResource buttonMonth}"/>
+                    <Button Content="1" Style="{StaticResource buttonMonth}" Click="ChangeCurrentMonth"/>
                     <Button Content="2" Style="{StaticResource buttonMonth}"/>
-                    <Button Content="3" Style="{StaticResource buttonMonth}"/>
+                    <Button Content="3" Style="{StaticResource buttonMonth}" Foreground="#C73F69" FontWeight="SemiBold"/>
                     <Button Content="4" Style="{StaticResource buttonMonth}"/>
                     <Button Content="5" Style="{StaticResource buttonMonth}"/>
                     <Button Content="6" Style="{StaticResource buttonMonth}"/>
@@ -58,37 +58,38 @@
                     <Button Content="8" Style="{StaticResource buttonMonth}"/>
                     <Button Content="9" Style="{StaticResource buttonMonth}"/>
                     <Button Content="10" Style="{StaticResource buttonMonth}"/>
-                    <Button Content="11" Style="{StaticResource buttonMonth}" Foreground="#C73F69" FontWeight="SemiBold"/>
+                    <Button Content="11" Style="{StaticResource buttonMonth}" />
                     <Button Content="12" Style="{StaticResource buttonMonth}"/>
                 </StackPanel>
 
                 <Separator Height="0.8" Background="#CACACA" Margin="30 10"/>
 
-                <TextBlock Text="November" Foreground="#C73F69" FontSize="24" TextAlignment="Center" FontWeight="SemiBold" Margin="0 15 0 20"/>
+                <!--<TextBlock Text="March" Foreground="#C73F69" FontSize="24" TextAlignment="Center" FontWeight="SemiBold" Margin="0 15 0 20"/>-->
 
-                <Calendar CalendarItemStyle="{DynamicResource CalendarCalendarItemStyle1}" CalendarDayButtonStyle="{DynamicResource CalendarCalendarDayButtonStyle1}" Style="{DynamicResource CalendarStyle1}"/>
+                <Calendar DisplayDate="01.01.2014" CalendarItemStyle="{DynamicResource CalendarCalendarItemStyle1}" CalendarDayButtonStyle="{DynamicResource CalendarCalendarDayButtonStyle1}" Style="{DynamicResource CalendarStyle1}"/>
             </StackPanel>
 
             <StackPanel Grid.Column="1">
                 <!--Titles-->
                 <StackPanel Margin="30 45 30 10" Orientation="Horizontal">
-                    <TextBlock Text="16" FontSize="50" Foreground="#FFFFFF"/>
+                    <TextBlock x:Name="CurrentDayProp" FontSize="50" Foreground="#FFFFFF"/>
 
                     <StackPanel Grid.Column="1" Margin="10 0 0 0" VerticalAlignment="Center">
-                        <TextBlock Text="November" Foreground="#FFFFFF" FontSize="24"/>
-                        <TextBlock Text="Monday" Foreground="#EBA5BB" FontSize="14"/>
+                        <TextBlock x:Name="CurrentMonthStringProp" Foreground="#FFFFFF" FontSize="24"/>
+                        <TextBlock x:Name="CurrentDayStringProp" Foreground="#EBA5BB" FontSize="14"/>
                     </StackPanel>
 
-                    <Button Style="{StaticResource buttonBig}" Margin="112 0 5 0">
+                    <!--<Button Style="{StaticResource buttonBig}" Margin="112 0 5 0">
                         <fa:ImageAwesome Icon="AngleLeft" Style="{StaticResource angleBig}"/>
                     </Button>
 
                     <Button Style="{StaticResource buttonBig}">
                         <fa:ImageAwesome Icon="AngleRight" Style="{StaticResource angleBig}"/>
-                    </Button>
+                    </Button>-->
                 </StackPanel>
 
-                <TextBlock Text="5 tasks- 2 dates left" Foreground="#EBA5BB" FontSize="16" Margin="35 0 20 0"/>
+                <!--Add Notes <TextBlock Text="5 tasks- 2 dates left" Foreground="#EBA5BB" FontSize="16" Margin="35 0 20 0"/>-->
+
 
                 <!--Add Notes-->
                 <Border Background="#CD5278" CornerRadius="10" HorizontalAlignment="Center" Width="355" Margin="0 30 0 20" Padding="17 15 5 15">
@@ -131,12 +132,16 @@
                     </Grid>
                 </Border>
 
+                <StackPanel x:Name="arrayOfActivities">
+                    
+                </StackPanel>
+
                 <!--Notes-->
-                <us:Item Title="Post on social networks" Time="09:45 - 10:30" Color="#EBA5BB" Icon="CheckCircle" IconBell="BellSlash"/>
+                <!--us:Item Title="Post on social networks" Time="09:45 - 10:30" Color="#EBA5BB" Icon="CheckCircle" IconBell="BellSlash"/>
                 <us:Item Title="Review the app design" Time="11:30 - 12:00" Color="#EBA5BB" Icon="CheckCircle" IconBell="BellSlash"/>
                 <us:Item Title="Build a demo of the app" Time="14:00 - 15:30" Color="#f1f1f1" Icon="CircleThin" IconBell="Bell"/>
                 <us:Item Title="Dinner with John Doe" Time="20:15 - 21:45" Color="#f1f1f1" Icon="CircleThin" IconBell="Bell"/>
-                <us:Item Title="Send email to Mohammad" Time="23:00 - 23:20" Color="#f1f1f1" Icon="CircleThin" IconBell="Bell"/>
+                <us:Item Title="Send email to Mohammad" Time="23:00 - 23:20" Color="#f1f1f1" Icon="CircleThin" IconBell="Bell"/>-->
 
             </StackPanel>
         </Grid>

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
@@ -6,11 +7,22 @@ namespace ToDoCalendar.UserControls
 {
     public partial class Item : UserControl
     {
+        public int ID { get; set; }
+        
         public Item()
         {
             InitializeComponent();
         }
 
+        public void SetActivity(Activity activity)
+        {
+            this.ID = activity.ID;
+            this.Title = activity.Name;
+            this.Color = Brushes.White;
+            this.Time = activity.StartTime;
+            this.IconBell = FontAwesome.WPF.FontAwesomeIcon.ClockOutline;
+            this.Icon = activity.Done ? FontAwesome.WPF.FontAwesomeIcon.CheckCircle : FontAwesome.WPF.FontAwesomeIcon.CircleThin;
+        }
 
         public string Title
         {
@@ -56,5 +68,19 @@ namespace ToDoCalendar.UserControls
 
         public static readonly DependencyProperty IconBellProperty = DependencyProperty.Register("IconBell", typeof(FontAwesome.WPF.FontAwesomeIcon), typeof(Item));
 
+        private void ItemEditActivity(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            Console.WriteLine("Item Edit button clicked");
+        }
+
+        private void ItemDeleteActivity(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            Console.WriteLine("Item Delete button clicked");
+        }
+
+        private void ItemCheckActivity(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            Console.WriteLine("Item Check button clicked");
+        }
     }
 }

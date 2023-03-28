@@ -35,7 +35,7 @@ namespace ToDoCalendar
                                 ID = 3,
                                 Name = "Bieg",
                                 StartTime = "13:00",
-                                Done = false,
+                                Done = true,
                                 DateID = 1
                             }
                         }

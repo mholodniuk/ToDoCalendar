@@ -45,7 +45,6 @@ namespace ToDoCalendar
             foreach (var activity in activities)
             {
                 Item item = new Item();
-                Console.WriteLine(activity.Name);
                 item.SetActivity(activity);
                 arrayOfActivities.Children.Add(item);
             }
@@ -59,6 +58,27 @@ namespace ToDoCalendar
             {
                 DateTime date = calendar.SelectedDate.Value;
                 this.Title = date.ToShortDateString();
+            }
+        }
+
+        private void AddActivity_Click(object sender, RoutedEventArgs e)
+        {
+            string Name = txtNote.Text;
+            string Time = txtTime.Text;
+            using (var context = new CalendarContext())
+            {
+                var newActivity = new Activity()
+                {
+                    Name = Name,
+                    StartTime = Time,
+                    Done = false,
+                    DateID = 1
+                };
+
+                Console.WriteLine("Adding");
+                context.Activities.Add(newActivity);
+                context.SaveChanges();
+                initToDos();
             }
         }
 

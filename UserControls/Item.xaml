@@ -7,7 +7,7 @@
              xmlns:local="clr-namespace:ToDoCalendar.UserControls"
              mc:Ignorable="d" Name="item">
 
-    <Border BorderBrush="Black" BorderThickness="4" CornerRadius="30,30,30,30" Margin="5">
+    <Border BorderBrush="White" BorderThickness="4" CornerRadius="30,30,30,30" Margin="5">
         <Grid Margin="30 10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>

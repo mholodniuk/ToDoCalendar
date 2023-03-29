@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:us="clr-namespace:ToDoCalendar.UserControls"
         FontFamily="Trebuchet MS" mc:Ignorable="d" WindowStartupLocation="CenterScreen"
-        Background="Transparent" Height="590" Width="900">
+       Height="590" Width="900">
 
     <Grid>
         <!--Grid Background-->
@@ -69,29 +69,29 @@
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="auto" />
-                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="65*" />
+                                    <ColumnDefinition Width="201*" />
                                 </Grid.ColumnDefinitions>
 
-                                <fa:ImageAwesome Icon="Bell" Width="15" Height="15" Foreground="#525252"/>
-                                <TextBlock x:Name="lblTime" MouseDown="lblTime_MouseDown" Text="_ _ : _ _  -  _ _ : _ _" Style="{StaticResource textHint}"/>
-                                <TextBox Name="txtTime" TextChanged="txtTime_TextChanged" Style="{StaticResource textBox}"/>
+                                <fa:ImageAwesome Icon="ClockOutline" Width="15" Height="15" Foreground="#EBA5BB" Margin="0,1,0,0"/>
+                                <TextBlock x:Name="lblTime" MouseDown="lblTime_MouseDown" Text="_ _ : _ _" Style="{StaticResource textHint}" Grid.Column="1" Grid.ColumnSpan="2" Margin="10,0,0,0"/>
+                                <TextBox Name="txtTime" TextChanged="txtTime_TextChanged" Style="{StaticResource textBox}" Grid.Column="1" Grid.ColumnSpan="2" Margin="10,0,0,0"/>
                             </Grid>
-
                         </StackPanel>
 
-                        <Button Style="{StaticResource button}" Grid.Column="1">
+                        <Button x:Name="AddActivity" Style="{StaticResource button}" Grid.Column="1" Click="AddActivity_Click">
                             <fa:ImageAwesome Icon="PlusCircle" Width="28" Height="28" Foreground="#f9f9f9" />
                         </Button>
                     </Grid>
                 </Border>
 
-                <ScrollViewer VerticalScrollBarVisibility="Auto">
+
+                <ScrollViewer Grid.Column="0" MaxHeight="300">
                     <StackPanel x:Name="arrayOfActivities">
                     </StackPanel>
                 </ScrollViewer>
+               
                     
-                
-
             </StackPanel>
         </Grid>
     </Grid>

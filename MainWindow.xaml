@@ -40,7 +40,7 @@
 
                     <StackPanel Grid.Column="1" Margin="10 0 0 0" VerticalAlignment="Center">
                         <TextBlock x:Name="CurrentMonthStringProp" Foreground="#FFFFFF" FontSize="24"/>
-                        <TextBlock x:Name="CurrentDayStringProp" Foreground="#EBA5BB" FontSize="14"/>
+                        <TextBlock x:Name="CurrentDayStringProp" Foreground="#FFFFFF" FontSize="14"/>
                     </StackPanel>
                 </StackPanel>
                 
@@ -59,7 +59,7 @@
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
 
-                                <fa:ImageAwesome Icon="Pencil" Width="15" Height="15" Foreground="#525252"/>
+                                <fa:ImageAwesome Icon="Pencil" Width="15" Height="15" Foreground="#f9f9f9"/>
                                 <TextBlock x:Name="lblNote" MouseDown="lblNote_MouseDown" Text="Add Note" Style="{StaticResource textHint}"/>
                                 <TextBox Name="txtNote" TextChanged="txtNote_TextChanged" Style="{StaticResource textBox}"/>
                             </Grid>
@@ -73,7 +73,7 @@
                                     <ColumnDefinition Width="201*" />
                                 </Grid.ColumnDefinitions>
 
-                                <fa:ImageAwesome Icon="ClockOutline" Width="15" Height="15" Foreground="#EBA5BB" Margin="0,1,0,0"/>
+                                <fa:ImageAwesome Icon="ClockOutline" Width="15" Height="15" Foreground="#f9f9f9" Margin="0,1,0,0"/>
                                 <TextBlock x:Name="lblTime" MouseDown="lblTime_MouseDown" Text="_ _ : _ _" Style="{StaticResource textHint}" Grid.Column="1" Grid.ColumnSpan="2" Margin="10,0,0,0"/>
                                 <TextBox Name="txtTime" TextChanged="txtTime_TextChanged" Style="{StaticResource textBox}" Grid.Column="1" Grid.ColumnSpan="2" Margin="10,0,0,0"/>
                             </Grid>

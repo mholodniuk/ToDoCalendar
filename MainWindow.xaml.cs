@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,7 +24,7 @@ namespace ToDoCalendar
             CurrentDayStringProp.Text = currentDayString;
             CurrentMonthStringProp.Text = currentMonthString;
 
-            initToDos();
+            initToDos(DateTime.Now);
             using (var context = new CalendarContext())
             {
                 foreach (var date in context.Dates)
@@ -33,14 +34,16 @@ namespace ToDoCalendar
             }
         }
 
-        private void initToDos()
+        private void initToDos(DateTime ChosenDate)
         {
             IList<Activity> activities;
             arrayOfActivities.Children.Clear();
 
             using (var context = new CalendarContext())
             {
-                activities = context.Activities.ToList();
+                activities = context.Activities
+                    .Where(activity => DbFunctions.TruncateTime(activity.Date.Day) == DbFunctions.TruncateTime(ChosenDate))
+                    .ToList();
             }
             foreach (var activity in activities)
             {
@@ -57,7 +60,7 @@ namespace ToDoCalendar
             if (calendar.SelectedDate.HasValue)
             {
                 DateTime date = calendar.SelectedDate.Value;
-                this.Title = date.ToShortDateString();
+                initToDos(date);
             }
         }
 
@@ -78,7 +81,8 @@ namespace ToDoCalendar
                 Console.WriteLine("Adding");
                 context.Activities.Add(newActivity);
                 context.SaveChanges();
-                initToDos();
+                // todo: store current selected date in order to be able to add todos to future days
+                initToDos(DateTime.Now);
             }
         }
 

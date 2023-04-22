@@ -80,7 +80,24 @@ namespace ToDoCalendar.UserControls
 
         private void ItemCheckActivity(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            Console.WriteLine("Item Check button clicked");
+            using (var context = new CalendarContext())
+            {
+                var activity = context.Activities.Find(this.ID);
+                if (activity != null)
+                {
+                    if (activity.Done)
+                    {
+                        this.Icon = FontAwesome.WPF.FontAwesomeIcon.CircleThin;
+                        context.Entry(activity).Entity.Done = false;
+                    }
+                    else
+                    {
+                        this.Icon = FontAwesome.WPF.FontAwesomeIcon.CheckCircle;
+                        context.Entry(activity).Entity.Done = true;
+                    }
+                    context.SaveChanges();
+                }
+            }
         }
     }
 }

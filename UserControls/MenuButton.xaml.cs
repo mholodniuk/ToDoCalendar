@@ -10,7 +10,6 @@ namespace ToDoCalendar.UserControls
             InitializeComponent();
         }
 
-
         public string Caption
         {
             get { return (string)GetValue(CaptionProperty); }

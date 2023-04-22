@@ -99,6 +99,7 @@ namespace ToDoCalendar
                 return context.Dates.Where(d => DbFunctions.TruncateTime(d.Day) == DbFunctions.TruncateTime(currentDate)).First().ID;
             }
         }
+
         private bool checkIfDateHasAcitivties(DateTime date, CalendarContext context)
         {
             return context.Dates.Any(d => DbFunctions.TruncateTime(d.Day) == DbFunctions.TruncateTime(date));

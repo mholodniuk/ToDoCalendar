@@ -11,27 +11,21 @@ namespace ToDoCalendar
 {
     public partial class MainWindow : Window
     {
-        public int currentYear = DateTime.Now.Year;
-        public int currentMonth = DateTime.Now.Month;
-        public string currentMonthString = DateTime.Now.ToString("MMM");
-        public int currentDay = DateTime.Now.Day;
-        public string currentDayString = DateTime.Now.DayOfWeek.ToString();
+        public DateTime currentDate;
 
         public MainWindow()
         {
             InitializeComponent();
-            CurrentDayProp.Text = currentDay.ToString();
-            CurrentDayStringProp.Text = currentDayString;
-            CurrentMonthStringProp.Text = currentMonthString;
+            currentDate = DateTime.Now;
+            updateProps(currentDate);
+            initToDos(currentDate);
+        }
 
-            initToDos(DateTime.Now);
-            using (var context = new CalendarContext())
-            {
-                foreach (var date in context.Dates)
-                {
-                    Console.WriteLine(date.Day);
-                }
-            }
+        private void updateProps(DateTime date)
+        {
+            CurrentDayProp.Text = date.Day.ToString();
+            CurrentDayStringProp.Text = date.DayOfWeek.ToString();
+            CurrentMonthStringProp.Text = date.ToString("MMM");
         }
 
         private void initToDos(DateTime ChosenDate)
@@ -59,8 +53,9 @@ namespace ToDoCalendar
 
             if (calendar.SelectedDate.HasValue)
             {
-                DateTime date = calendar.SelectedDate.Value;
-                initToDos(date);
+                currentDate = calendar.SelectedDate.Value;
+                updateProps(currentDate);
+                initToDos(currentDate);
             }
         }
 
@@ -70,20 +65,43 @@ namespace ToDoCalendar
             string Time = txtTime.Text;
             using (var context = new CalendarContext())
             {
+                int currentDateID = getSelectedDateID(currentDate, context);
+
                 var newActivity = new Activity()
                 {
                     Name = Name,
                     StartTime = Time,
                     Done = false,
-                    DateID = 1
+                    DateID = currentDateID
                 };
 
-                Console.WriteLine("Adding");
                 context.Activities.Add(newActivity);
                 context.SaveChanges();
-                // todo: store current selected date in order to be able to add todos to future days
-                initToDos(DateTime.Now);
+                initToDos(currentDate);
             }
+        }
+
+        private int getSelectedDateID(DateTime selectedDate, CalendarContext context)
+        {
+            if (!checkIfDateHasAcitivties(currentDate, context))
+            {
+                var newDate = new Date()
+                {
+                    Day = currentDate,
+                    Activities = new List<Activity>()
+                };
+                context.Dates.Add(newDate);
+                context.SaveChanges();
+                return newDate.ID;
+            }
+            else
+            {
+                return context.Dates.Where(d => DbFunctions.TruncateTime(d.Day) == DbFunctions.TruncateTime(currentDate)).First().ID;
+            }
+        }
+        private bool checkIfDateHasAcitivties(DateTime date, CalendarContext context)
+        {
+            return context.Dates.Any(d => DbFunctions.TruncateTime(d.Day) == DbFunctions.TruncateTime(date));
         }
 
         private void lblNote_MouseDown(object sender, MouseButtonEventArgs e)

@@ -81,7 +81,7 @@ namespace ToDoCalendar
                         }
                     }
                 };
-        dates.ForEach(c => context.Dates.Add(c));
+            dates.ForEach(c => context.Dates.Add(c));
             context.SaveChanges();
         }
     }

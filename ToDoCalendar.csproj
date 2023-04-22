@@ -65,8 +65,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Activity.cs" />
-    <Compile Include="Date.cs" />
+    <Compile Include="Models\Activity.cs" />
+    <Compile Include="Models\Date.cs" />
     <Compile Include="Migrations\202303251627452_InitialCreate.cs" />
     <Compile Include="Migrations\202303251627452_InitialCreate.Designer.cs">
       <DependentUpon>202303251627452_InitialCreate.cs</DependentUpon>

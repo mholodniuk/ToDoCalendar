@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -75,7 +76,17 @@ namespace ToDoCalendar.UserControls
 
         private void ItemDeleteActivity(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            Console.WriteLine("Item Delete button clicked");
+            using (var context = new CalendarContext())
+            {
+                var activity = context.Activities.Find(this.ID);
+                if (activity != null)
+                {
+                    context.Activities.Remove(activity);
+                    context.SaveChanges();
+                    StackPanel parent = this.Parent as StackPanel;
+                    parent.Children.Remove(this);
+                }
+            }
         }
 
         private void ItemCheckActivity(object sender, System.Windows.Input.MouseButtonEventArgs e)

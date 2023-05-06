@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using ToDoCalendar.Utils;
 using ToDoCalendar.UserControls;
 
 namespace ToDoCalendar
@@ -30,20 +31,23 @@ namespace ToDoCalendar
 
         private void initToDos(DateTime ChosenDate)
         {
-            IList<Activity> activities;
             arrayOfActivities.Children.Clear();
-
-            using (var context = new CalendarContext())
-            {
-                activities = context.Activities
-                    .Where(activity => DbFunctions.TruncateTime(activity.Date.Day) == DbFunctions.TruncateTime(ChosenDate))
-                    .ToList();
-            }
-            foreach (var activity in activities)
+            
+            foreach (var activity in getAllActivities(ChosenDate))
             {
                 Item item = new Item();
                 item.SetActivity(activity);
                 arrayOfActivities.Children.Add(item);
+            }
+        }
+
+        public IList<Activity> getAllActivities(DateTime ChosenDate)
+        {
+            using (var context = new CalendarContext())
+            {
+                return context.Activities
+                    .Where(activity => DbFunctions.TruncateTime(activity.Date.Day) == DbFunctions.TruncateTime(ChosenDate))
+                    .ToList();
             }
         }
 
@@ -63,6 +67,12 @@ namespace ToDoCalendar
         {
             string Name = txtNote.Text;
             string Time = txtTime.Text;
+
+            if (!Utils.Utils.isActivityValid(Name, Time))
+            {
+                return;
+            }
+
             using (var context = new CalendarContext())
             {
                 int currentDateID = getSelectedDateID(currentDate, context);
@@ -77,11 +87,12 @@ namespace ToDoCalendar
 
                 context.Activities.Add(newActivity);
                 context.SaveChanges();
-                initToDos(currentDate);
             }
+
+            initToDos(currentDate);
         }
 
-        private int getSelectedDateID(DateTime selectedDate, CalendarContext context)
+        public int getSelectedDateID(DateTime selectedDate, CalendarContext context)
         {
             if (!checkIfDateHasAcitivties(currentDate, context))
             {
@@ -100,7 +111,7 @@ namespace ToDoCalendar
             }
         }
 
-        private bool checkIfDateHasAcitivties(DateTime date, CalendarContext context)
+        public bool checkIfDateHasAcitivties(DateTime date, CalendarContext context)
         {
             return context.Dates.Any(d => DbFunctions.TruncateTime(d.Day) == DbFunctions.TruncateTime(date));
         }
@@ -115,7 +126,7 @@ namespace ToDoCalendar
             txtTime.Focus();
         }
 
-        private void txtNote_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        private void txtNote_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (!string.IsNullOrEmpty(txtNote.Text) && txtNote.Text.Length > 0)
                 lblNote.Visibility = Visibility.Collapsed;
@@ -123,7 +134,7 @@ namespace ToDoCalendar
                 lblNote.Visibility = Visibility.Visible;
         }
 
-        private void txtTime_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        private void txtTime_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (!string.IsNullOrEmpty(txtTime.Text) && txtTime.Text.Length > 0)
                 lblTime.Visibility = Visibility.Collapsed;

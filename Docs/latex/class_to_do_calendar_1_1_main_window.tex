@@ -1,0 +1,263 @@
+\hypertarget{class_to_do_calendar_1_1_main_window}{}\doxysection{To\+Do\+Calendar.\+Main\+Window Class Reference}
+\label{class_to_do_calendar_1_1_main_window}\index{ToDoCalendar.MainWindow@{ToDoCalendar.MainWindow}}
+
+
+Main window class.  
+
+
+Inheritance diagram for To\+Do\+Calendar.\+Main\+Window\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_to_do_calendar_1_1_main_window}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_to_do_calendar_1_1_main_window_a067247e0fcdcce8597613b26d275b022}\label{class_to_do_calendar_1_1_main_window_a067247e0fcdcce8597613b26d275b022}} 
+{\bfseries Main\+Window} ()
+\begin{DoxyCompactList}\small\item\em Constructor -\/ responsible for initializing component and member fields and UI. \end{DoxyCompactList}\item 
+IList$<$ Activity $>$ \mbox{\hyperlink{class_to_do_calendar_1_1_main_window_adce2739f6ca934a793bcd80a630100ee}{get\+All\+Activities}} (Date\+Time Chosen\+Date)
+\begin{DoxyCompactList}\small\item\em Retrieves all activities found in database on given date and returns them. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_to_do_calendar_1_1_main_window_a10f3634161e9183205cdea2ba1a3c45c}{get\+Selected\+Date\+ID}} (Date\+Time selected\+Date, \mbox{\hyperlink{class_to_do_calendar_1_1_calendar_context}{Calendar\+Context}} context)
+\begin{DoxyCompactList}\small\item\em Retrieves ID of currently selected date If entity with given date does not exist in the database, it is created and inserted. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_to_do_calendar_1_1_main_window_a7bb8c39b96f91127b31485f2ed52b05f}{check\+If\+Date\+Has\+Acitivties}} (Date\+Time date, \mbox{\hyperlink{class_to_do_calendar_1_1_calendar_context}{Calendar\+Context}} context)
+\begin{DoxyCompactList}\small\item\em Utility method that checks if database contains entity with given date. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_to_do_calendar_1_1_main_window_a9838e94cb50191df6a20c68a9bf4885b}\label{class_to_do_calendar_1_1_main_window_a9838e94cb50191df6a20c68a9bf4885b}} 
+Date\+Time {\bfseries current\+Date}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_to_do_calendar_1_1_main_window_a7ddb9dea174fbaf46ce13a8190e1946e}{update\+Props}} (Date\+Time date)
+\begin{DoxyCompactList}\small\item\em Updates current state of the program (date information controls) based on currently selected date. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_to_do_calendar_1_1_main_window_a08f414efb7960730422e62c8a183cb01}{init\+To\+Dos}} (Date\+Time Chosen\+Date)
+\begin{DoxyCompactList}\small\item\em Initializes list of todo activities based on currently selected date. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_to_do_calendar_1_1_main_window_a9da7d8f7a30400a9b206ae6232ee3b62}{Calendar\+\_\+\+On\+Selected\+Dates\+Changed}} (object sender, Selection\+Changed\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Handles current date change (when user clicks on the calendar component) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_to_do_calendar_1_1_main_window_adaafcc59aeabc0983459b5f1dd7d55a1}{Add\+Activity\+\_\+\+Click}} (object sender, Routed\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Handles adding new activity on currently selected date. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_to_do_calendar_1_1_main_window_a48a57ff11ce1e9d21f50fe4b117c5def}{lbl\+Note\+\_\+\+Mouse\+Down}} (object sender, Mouse\+Button\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em UI utility method. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_to_do_calendar_1_1_main_window_a7bd187d202289add43d0c97300aab961}{lbl\+Time\+\_\+\+Mouse\+Down}} (object sender, Mouse\+Button\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em UI utility method. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_to_do_calendar_1_1_main_window_adce49911a9c3c0328cd66bcbb8bb10a2}{txt\+Note\+\_\+\+Text\+Changed}} (object sender, Text\+Changed\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em UI utility method. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_to_do_calendar_1_1_main_window_a76f0fe8ce31c78d50d3b4a64b0f8901b}{txt\+Time\+\_\+\+Text\+Changed}} (object sender, Text\+Changed\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em UI utility method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_to_do_calendar_1_1_main_window_a82aa3561c39a0e95583c17061b2a1be0}\label{class_to_do_calendar_1_1_main_window_a82aa3561c39a0e95583c17061b2a1be0}} 
+Culture\+Info {\bfseries polish\+Culture} = new Culture\+Info(\char`\"{}pl-\/PL\char`\"{})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main window class. 
+
+Stores state of the application and defines method for user interactions (connects front-\/end with back-\/end logic) 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_to_do_calendar_1_1_main_window_adaafcc59aeabc0983459b5f1dd7d55a1}\label{class_to_do_calendar_1_1_main_window_adaafcc59aeabc0983459b5f1dd7d55a1}} 
+\index{ToDoCalendar.MainWindow@{ToDoCalendar.MainWindow}!AddActivity\_Click@{AddActivity\_Click}}
+\index{AddActivity\_Click@{AddActivity\_Click}!ToDoCalendar.MainWindow@{ToDoCalendar.MainWindow}}
+\doxysubsubsection{\texorpdfstring{AddActivity\_Click()}{AddActivity\_Click()}}
+{\footnotesize\ttfamily void To\+Do\+Calendar.\+Main\+Window.\+Add\+Activity\+\_\+\+Click (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Routed\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Handles adding new activity on currently selected date. 
+
+Performs validation if form is not empty, otherwise it does not add empty fields to the database
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & \\
+\hline
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_to_do_calendar_1_1_main_window_a9da7d8f7a30400a9b206ae6232ee3b62}\label{class_to_do_calendar_1_1_main_window_a9da7d8f7a30400a9b206ae6232ee3b62}} 
+\index{ToDoCalendar.MainWindow@{ToDoCalendar.MainWindow}!Calendar\_OnSelectedDatesChanged@{Calendar\_OnSelectedDatesChanged}}
+\index{Calendar\_OnSelectedDatesChanged@{Calendar\_OnSelectedDatesChanged}!ToDoCalendar.MainWindow@{ToDoCalendar.MainWindow}}
+\doxysubsubsection{\texorpdfstring{Calendar\_OnSelectedDatesChanged()}{Calendar\_OnSelectedDatesChanged()}}
+{\footnotesize\ttfamily void To\+Do\+Calendar.\+Main\+Window.\+Calendar\+\_\+\+On\+Selected\+Dates\+Changed (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Selection\+Changed\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Handles current date change (when user clicks on the calendar component) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & \\
+\hline
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_to_do_calendar_1_1_main_window_a7bb8c39b96f91127b31485f2ed52b05f}\label{class_to_do_calendar_1_1_main_window_a7bb8c39b96f91127b31485f2ed52b05f}} 
+\index{ToDoCalendar.MainWindow@{ToDoCalendar.MainWindow}!checkIfDateHasAcitivties@{checkIfDateHasAcitivties}}
+\index{checkIfDateHasAcitivties@{checkIfDateHasAcitivties}!ToDoCalendar.MainWindow@{ToDoCalendar.MainWindow}}
+\doxysubsubsection{\texorpdfstring{checkIfDateHasAcitivties()}{checkIfDateHasAcitivties()}}
+{\footnotesize\ttfamily bool To\+Do\+Calendar.\+Main\+Window.\+check\+If\+Date\+Has\+Acitivties (\begin{DoxyParamCaption}\item[{Date\+Time}]{date,  }\item[{\mbox{\hyperlink{class_to_do_calendar_1_1_calendar_context}{Calendar\+Context}}}]{context }\end{DoxyParamCaption})}
+
+
+
+Utility method that checks if database contains entity with given date. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & \\
+\hline
+{\em context} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_to_do_calendar_1_1_main_window_adce2739f6ca934a793bcd80a630100ee}\label{class_to_do_calendar_1_1_main_window_adce2739f6ca934a793bcd80a630100ee}} 
+\index{ToDoCalendar.MainWindow@{ToDoCalendar.MainWindow}!getAllActivities@{getAllActivities}}
+\index{getAllActivities@{getAllActivities}!ToDoCalendar.MainWindow@{ToDoCalendar.MainWindow}}
+\doxysubsubsection{\texorpdfstring{getAllActivities()}{getAllActivities()}}
+{\footnotesize\ttfamily IList$<$ Activity $>$ To\+Do\+Calendar.\+Main\+Window.\+get\+All\+Activities (\begin{DoxyParamCaption}\item[{Date\+Time}]{Chosen\+Date }\end{DoxyParamCaption})}
+
+
+
+Retrieves all activities found in database on given date and returns them. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Chosen\+Date} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+list of activities
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_to_do_calendar_1_1_main_window_a10f3634161e9183205cdea2ba1a3c45c}\label{class_to_do_calendar_1_1_main_window_a10f3634161e9183205cdea2ba1a3c45c}} 
+\index{ToDoCalendar.MainWindow@{ToDoCalendar.MainWindow}!getSelectedDateID@{getSelectedDateID}}
+\index{getSelectedDateID@{getSelectedDateID}!ToDoCalendar.MainWindow@{ToDoCalendar.MainWindow}}
+\doxysubsubsection{\texorpdfstring{getSelectedDateID()}{getSelectedDateID()}}
+{\footnotesize\ttfamily int To\+Do\+Calendar.\+Main\+Window.\+get\+Selected\+Date\+ID (\begin{DoxyParamCaption}\item[{Date\+Time}]{selected\+Date,  }\item[{\mbox{\hyperlink{class_to_do_calendar_1_1_calendar_context}{Calendar\+Context}}}]{context }\end{DoxyParamCaption})}
+
+
+
+Retrieves ID of currently selected date If entity with given date does not exist in the database, it is created and inserted. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em selected\+Date} & \\
+\hline
+{\em context} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_to_do_calendar_1_1_main_window_a08f414efb7960730422e62c8a183cb01}\label{class_to_do_calendar_1_1_main_window_a08f414efb7960730422e62c8a183cb01}} 
+\index{ToDoCalendar.MainWindow@{ToDoCalendar.MainWindow}!initToDos@{initToDos}}
+\index{initToDos@{initToDos}!ToDoCalendar.MainWindow@{ToDoCalendar.MainWindow}}
+\doxysubsubsection{\texorpdfstring{initToDos()}{initToDos()}}
+{\footnotesize\ttfamily void To\+Do\+Calendar.\+Main\+Window.\+init\+To\+Dos (\begin{DoxyParamCaption}\item[{Date\+Time}]{Chosen\+Date }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Initializes list of todo activities based on currently selected date. 
+
+updates UI of the application
+
+
+\begin{DoxyParams}{Parameters}
+{\em Chosen\+Date} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_to_do_calendar_1_1_main_window_a48a57ff11ce1e9d21f50fe4b117c5def}\label{class_to_do_calendar_1_1_main_window_a48a57ff11ce1e9d21f50fe4b117c5def}} 
+\index{ToDoCalendar.MainWindow@{ToDoCalendar.MainWindow}!lblNote\_MouseDown@{lblNote\_MouseDown}}
+\index{lblNote\_MouseDown@{lblNote\_MouseDown}!ToDoCalendar.MainWindow@{ToDoCalendar.MainWindow}}
+\doxysubsubsection{\texorpdfstring{lblNote\_MouseDown()}{lblNote\_MouseDown()}}
+{\footnotesize\ttfamily void To\+Do\+Calendar.\+Main\+Window.\+lbl\+Note\+\_\+\+Mouse\+Down (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Mouse\+Button\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+UI utility method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & \\
+\hline
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_to_do_calendar_1_1_main_window_a7bd187d202289add43d0c97300aab961}\label{class_to_do_calendar_1_1_main_window_a7bd187d202289add43d0c97300aab961}} 
+\index{ToDoCalendar.MainWindow@{ToDoCalendar.MainWindow}!lblTime\_MouseDown@{lblTime\_MouseDown}}
+\index{lblTime\_MouseDown@{lblTime\_MouseDown}!ToDoCalendar.MainWindow@{ToDoCalendar.MainWindow}}
+\doxysubsubsection{\texorpdfstring{lblTime\_MouseDown()}{lblTime\_MouseDown()}}
+{\footnotesize\ttfamily void To\+Do\+Calendar.\+Main\+Window.\+lbl\+Time\+\_\+\+Mouse\+Down (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Mouse\+Button\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+UI utility method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & \\
+\hline
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_to_do_calendar_1_1_main_window_adce49911a9c3c0328cd66bcbb8bb10a2}\label{class_to_do_calendar_1_1_main_window_adce49911a9c3c0328cd66bcbb8bb10a2}} 
+\index{ToDoCalendar.MainWindow@{ToDoCalendar.MainWindow}!txtNote\_TextChanged@{txtNote\_TextChanged}}
+\index{txtNote\_TextChanged@{txtNote\_TextChanged}!ToDoCalendar.MainWindow@{ToDoCalendar.MainWindow}}
+\doxysubsubsection{\texorpdfstring{txtNote\_TextChanged()}{txtNote\_TextChanged()}}
+{\footnotesize\ttfamily void To\+Do\+Calendar.\+Main\+Window.\+txt\+Note\+\_\+\+Text\+Changed (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Text\+Changed\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+UI utility method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & \\
+\hline
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_to_do_calendar_1_1_main_window_a76f0fe8ce31c78d50d3b4a64b0f8901b}\label{class_to_do_calendar_1_1_main_window_a76f0fe8ce31c78d50d3b4a64b0f8901b}} 
+\index{ToDoCalendar.MainWindow@{ToDoCalendar.MainWindow}!txtTime\_TextChanged@{txtTime\_TextChanged}}
+\index{txtTime\_TextChanged@{txtTime\_TextChanged}!ToDoCalendar.MainWindow@{ToDoCalendar.MainWindow}}
+\doxysubsubsection{\texorpdfstring{txtTime\_TextChanged()}{txtTime\_TextChanged()}}
+{\footnotesize\ttfamily void To\+Do\+Calendar.\+Main\+Window.\+txt\+Time\+\_\+\+Text\+Changed (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Text\+Changed\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+UI utility method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & \\
+\hline
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_to_do_calendar_1_1_main_window_a7ddb9dea174fbaf46ce13a8190e1946e}\label{class_to_do_calendar_1_1_main_window_a7ddb9dea174fbaf46ce13a8190e1946e}} 
+\index{ToDoCalendar.MainWindow@{ToDoCalendar.MainWindow}!updateProps@{updateProps}}
+\index{updateProps@{updateProps}!ToDoCalendar.MainWindow@{ToDoCalendar.MainWindow}}
+\doxysubsubsection{\texorpdfstring{updateProps()}{updateProps()}}
+{\footnotesize\ttfamily void To\+Do\+Calendar.\+Main\+Window.\+update\+Props (\begin{DoxyParamCaption}\item[{Date\+Time}]{date }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Updates current state of the program (date information controls) based on currently selected date. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Main\+Window.\+xaml.\+cs\end{DoxyCompactItemize}

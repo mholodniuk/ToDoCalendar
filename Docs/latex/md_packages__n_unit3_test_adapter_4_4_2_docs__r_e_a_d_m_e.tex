@@ -1,0 +1,39 @@
+The NUnit 3 Test Adapter runs NUnit 3.\+x tests in Visual Studio 2012 and newer.
+
+You can download the latest release version 
+
+\href{https://www.nuget.org/packages/NUnit3TestAdapter}{\texttt{ }} 
+
+or the latest developer build version
+
+\href{https://www.myget.org/feed/nunit/package/nuget/NUnit3TestAdapter}{\texttt{ }}\hypertarget{md_packages__n_unit3_test_adapter_4_4_2_docs__r_e_a_d_m_e_autotoc_md174}{}\doxyparagraph{Builds on master}\label{md_packages__n_unit3_test_adapter_4_4_2_docs__r_e_a_d_m_e_autotoc_md174}
+\href{https://nunit.visualstudio.com/NUnit/_build?definitionId=12&_a=completed}{\texttt{ }} \href{https://nunit.visualstudio.com/NUnit/_build?definitionId=4&_a=completed}{\texttt{ }} \href{https://nunit.visualstudio.com/NUnit/_build?definitionId=4&_a=completed}{\texttt{ }} \href{https://nunit.visualstudio.com/NUnit/_build?definitionId=4&_a=completed}{\texttt{ }}\hypertarget{md_packages__n_unit3_test_adapter_4_4_2_docs__r_e_a_d_m_e_autotoc_md175}{}\doxyparagraph{Support}\label{md_packages__n_unit3_test_adapter_4_4_2_docs__r_e_a_d_m_e_autotoc_md175}
+Ask support questions \href{https://join.slack.com/t/nunit/shared_invite/zt-jz58jw68-Led8y3WH4n2a~Y5WjuOpKA}{\texttt{ }} or raise an issue \href{https://github.com/nunit/nunit3-vs-adapter/issues}{\texttt{ }}\hypertarget{md_packages__n_unit3_test_adapter_4_4_2_docs__r_e_a_d_m_e_autotoc_md176}{}\doxysection{Documentation}\label{md_packages__n_unit3_test_adapter_4_4_2_docs__r_e_a_d_m_e_autotoc_md176}
+The \href{https://docs.nunit.org/articles/vs-test-adapter/Index.html}{\texttt{ NUnit3\+Test\+Adapter wiki}} is the best place to start.
+
+Also check the \href{https://docs.nunit.org/articles/vs-test-adapter/Adapter-Release-Notes.html}{\texttt{ release notes}}.\hypertarget{md_packages__n_unit3_test_adapter_4_4_2_docs__r_e_a_d_m_e_autotoc_md177}{}\doxysection{License}\label{md_packages__n_unit3_test_adapter_4_4_2_docs__r_e_a_d_m_e_autotoc_md177}
+The NUnit 3 Test Adapter is Open Source software released under the \href{https://nunit.org/nuget/nunit3-license.txt}{\texttt{ }}.\hypertarget{md_packages__n_unit3_test_adapter_4_4_2_docs__r_e_a_d_m_e_autotoc_md178}{}\doxysection{Developing}\label{md_packages__n_unit3_test_adapter_4_4_2_docs__r_e_a_d_m_e_autotoc_md178}
+Visual Studio 2022 is the recommended version to build and test the adapter.
+
+Use {\ttfamily .\textbackslash{}build -\/t test} at the command line to build and run complete tests.
+
+To create a package use {\ttfamily .\textbackslash{}build -\/t package}
+
+To run and debug tests on .NET Framework, load {\ttfamily Disable\+App\+Domain.\+runsettings}.
+
+From Visual Studio 2019 version 16.\+2 preview 4 it is possible to run tests against a selected target framework in the test project, so one can use this to run .NET Core tests. An alternative approach is to make use of the command line. If you need to frequently debug into .NET Core tests, you can temporarily switch the order of the {\ttfamily \texorpdfstring{$<$}{<}Target\+Frameworks\texorpdfstring{$>$}{>}} in {\ttfamily NUnit.\+Test\+Adapter.\+Tests.\+csproj}.
+
+The {\ttfamily mock-\/assembly} tests are not for direct running.
+
+See \href{https://github.com/nunit/docs/wiki/Packaging-the-V3-Adapter}{\texttt{ https\+://github.\+com/nunit/docs/wiki/\+Packaging-\/the-\/\+V3-\/\+Adapter}} for more details.\hypertarget{md_packages__n_unit3_test_adapter_4_4_2_docs__r_e_a_d_m_e_autotoc_md179}{}\doxysection{Debugger source-\/stepping}\label{md_packages__n_unit3_test_adapter_4_4_2_docs__r_e_a_d_m_e_autotoc_md179}
+The Nu\+Get package and the VSIX contain source-\/linked PDBs for the adapter. If you’re in the middle of a debugging session and realize you’d like to be able to step into NUnit adapter code, set breakpoints and watch variables, \href{https://github.com/nunit/docs/wiki/Adapter-Source-Stepping}{\texttt{ follow these steps}}.\hypertarget{md_packages__n_unit3_test_adapter_4_4_2_docs__r_e_a_d_m_e_autotoc_md180}{}\doxysection{Notes}\label{md_packages__n_unit3_test_adapter_4_4_2_docs__r_e_a_d_m_e_autotoc_md180}
+
+\begin{DoxyItemize}
+\item This adapter works with NUnit 3.\+0 and higher only. Use the NUnit 2 Adapter to run NUnit 2.\+x tests.
+\end{DoxyItemize}\hypertarget{md_packages__n_unit3_test_adapter_4_4_2_docs__r_e_a_d_m_e_autotoc_md181}{}\doxysection{Announcements}\label{md_packages__n_unit3_test_adapter_4_4_2_docs__r_e_a_d_m_e_autotoc_md181}
+
+\begin{DoxyItemize}
+\item From version 3.\+9 the NUnit3\+Test\+Adapter will stop supporting Visual Studio 2012 RTM (!), note only RTM, the later updates will still be supported fully. If you\textquotesingle{}re using VS 2012 and want to update NUnit3\+Test\+Adapter, please update your Visual Studio RTM to any of the subsequent updates (Update 1-\/5)
+\item From version 3.\+16 the NUnit3\+Test\+Adapter will stop supporting .net core 1
+\item From version 4.\+0 the NUnit3\+Test\+Adapter will only be released as a nuget package, the VSIX is deprecated. 
+\end{DoxyItemize}

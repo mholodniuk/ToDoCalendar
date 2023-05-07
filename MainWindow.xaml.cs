@@ -8,6 +8,12 @@ using System.Windows.Input;
 using ToDoCalendar.Utils;
 using ToDoCalendar.UserControls;
 using System.Globalization;
+using ToDoCalendar.WeatherInfo;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+using System.Net.Http;
+using System.Runtime.CompilerServices;
+
 
 namespace ToDoCalendar
 {
@@ -20,6 +26,8 @@ namespace ToDoCalendar
     {
         public DateTime currentDate;
         CultureInfo polishCulture = new CultureInfo("pl-PL");
+        WeatherForecast forecast1;
+
 
         /// <summary>
         /// Constructor - responsible for initializing component and member fields and UI.
@@ -30,7 +38,21 @@ namespace ToDoCalendar
             currentDate = DateTime.Now;
             updateProps(currentDate);
             initToDos(currentDate);
+            Console.WriteLine("Czeka");
+            Main().Wait();
         }
+        static async Task Main()
+        {
+            await Program.GetWeatherInfo();
+            var forecast = Program.weatherForecast;
+            // Ustaw wartości tekstowe dla etykiety WeatherInfoProp
+            string windSpeed = $"{forecast.WindSpd} m/s";
+            string description = $"{forecast.Weather.Description}";
+            string temperature = $"{forecast.Temperature} °C";
+            Console.WriteLine($"Pogoda: {description}, {temperature}, prędkość wiatru: {windSpeed}");
+
+        }
+
 
         /// <summary>
         /// Updates current state of the program (date information controls) based on currently selected date
@@ -103,7 +125,10 @@ namespace ToDoCalendar
         private void AddActivity_Click(object sender, RoutedEventArgs e)
         {
             string Name = txtNote.Text;
-            string Time = txtTime.Text;
+            string Time = "00:00";
+            if (!ValidateTime(txtTime.Text)) { return; }
+            else Time = txtTime.Text;
+
 
             if (!Utils.Utils.isActivityValid(Name, Time))
             {
@@ -204,6 +229,27 @@ namespace ToDoCalendar
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        private bool ValidateTime(string time)
+        {
+            string[] timeParts = time.Split(':');
+
+            if (timeParts.Length != 2)
+            {
+                MessageBox.Show("Niepoprawny format godziny!");
+                return false;
+            }
+
+            bool firstPartIsValid = int.TryParse(timeParts[0], out int hours) && hours >= 0 && hours <= 23;
+            bool secondPartIsValid = int.TryParse(timeParts[1], out int minutes) && minutes >= 0 && minutes <= 59;
+
+            if (!firstPartIsValid || !secondPartIsValid)
+            {
+                MessageBox.Show("Niepoprawna godzina!");
+                return false;
+            }
+
+            return true;
+        }
         private void txtTime_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (!string.IsNullOrEmpty(txtTime.Text) && txtTime.Text.Length > 0)

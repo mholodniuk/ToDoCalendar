@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.Entity;
 using System.Collections.ObjectModel;
 
@@ -14,11 +11,11 @@ namespace ToDoCalendar
         {
 
         }
-        public  DbSet<Date> Dates { get; set; }
-        public DbSet<Activity> Activities { get; set; }
+        public virtual DbSet<Date> Dates { get; set; }
+        public virtual DbSet<Activity> Activities { get; set; }
     }
 
-    public class CalendarDbInitializer : DropCreateDatabaseAlways<CalendarContext>
+    public class CalendarDbInitializer : CreateDatabaseIfNotExists<CalendarContext>
     {
         protected override void Seed(CalendarContext context)
         {

@@ -22,7 +22,7 @@ namespace ToDoCalendar.UserControls
             this.Color = Brushes.White;
             this.Time = activity.StartTime;
             this.IconBell = FontAwesome.WPF.FontAwesomeIcon.ClockOutline;
-            this.Icon = activity.Done ? FontAwesome.WPF.FontAwesomeIcon.CheckCircle : FontAwesome.WPF.FontAwesomeIcon.CircleThin;
+            this.Icon = Utils.Utils.getIconForActivity(activity);
         }
 
         public string Title

@@ -6,5 +6,10 @@
         {
             return name != null && name != "" && time != null && time != "";
         }
+
+        public static FontAwesome.WPF.FontAwesomeIcon getIconForActivity(Activity activity)
+        {
+            return activity.Done ? FontAwesome.WPF.FontAwesomeIcon.CheckCircle : FontAwesome.WPF.FontAwesomeIcon.CircleThin;
+        }
     }
 }

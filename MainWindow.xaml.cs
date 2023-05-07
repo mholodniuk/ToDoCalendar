@@ -5,15 +5,12 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using ToDoCalendar.Utils;
 using ToDoCalendar.UserControls;
 using System.Globalization;
 using ToDoCalendar.WeatherInfo;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 using System.Net.Http;
-using System.Runtime.CompilerServices;
-
+using Newtonsoft.Json;
 
 namespace ToDoCalendar
 {
@@ -39,24 +36,8 @@ namespace ToDoCalendar
             updateProps(currentDate);
             initToDos(currentDate);
             Console.WriteLine("Czeka");
-            await Main();
+            var result = GetWeatherInfo(); /// this assignment is needed in order to execute async method
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        static async Task Main()
-        {
-            await Program.GetWeatherInfo();
-            var forecast = Program.weatherForecast;
-            string windSpeed = $"{forecast.WindSpd} m/s";
-            string description = $"{forecast.Weather.Description}";
-            string temperature = $"{forecast.Temperature} °C";
-            Console.WriteLine($"Pogoda: {description}, {temperature}, prędkość wiatru: {windSpeed}");
-
-        }
-
 
         /// <summary>
         /// Updates current state of the program (date information controls) based on currently selected date
@@ -84,6 +65,27 @@ namespace ToDoCalendar
                 Item item = new Item();
                 item.SetActivity(activity);
                 arrayOfActivities.Children.Add(item);
+            }
+        }
+
+        public async Task<WeatherForecast> GetWeatherInfo()
+        {
+            HttpClient client = new HttpClient();
+            var call = $"https://api.weatherbit.io/v2.0/forecast/daily?city=Wroclaw&country=Polska&key=72f159d74c034c0c8802ab9f590524e9";
+            var response = await client.GetAsync(call);
+            if (response.IsSuccessStatusCode)
+            {
+                var jsonString = await response.Content.ReadAsStringAsync();
+                forecast1 = JsonConvert.DeserializeObject<WeatherForecast>(jsonString);
+
+                Console.WriteLine($"Pogoda: {forecast1.data[0].weather.description}, miasto {forecast1.city_name}");
+
+                return forecast1;
+            }
+            else
+            {
+                Console.WriteLine("Nie udało się pobrać danych z API.");
+                return null;
             }
         }
 

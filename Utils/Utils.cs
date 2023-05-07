@@ -1,5 +1,9 @@
 ﻿namespace ToDoCalendar.Utils
 {
+    /// <summary>
+    /// Utility methods
+    /// Used in application to validate data or perform repetitive tasks
+    /// </summary>
     public class Utils
     {
         public static bool isActivityValid(string name, string time)

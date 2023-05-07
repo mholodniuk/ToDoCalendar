@@ -9,6 +9,9 @@ using System.Linq;
 
 namespace ToDoCalendar.Tests
 {
+    /// <summary>
+    /// Test class that performs unit tests of utility methods and database operations
+    /// </summary>
     public class UnitTests
     {
         private Mock<DbSet<Date>> _mockDatesDbSet;

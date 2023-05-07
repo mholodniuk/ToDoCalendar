@@ -6,6 +6,10 @@ using System.Windows.Media;
 
 namespace ToDoCalendar.UserControls
 {
+    /// <summary>
+    /// Item control represents a activity in a view
+    /// This class lets user edit activity state or delete it from database
+    /// </summary>
     public partial class Item : UserControl
     {
         public int ID { get; set; }
@@ -25,6 +29,9 @@ namespace ToDoCalendar.UserControls
             this.Icon = Utils.Utils.getIconForActivity(activity);
         }
 
+        /// <summary>
+        /// WPF specific method that sets a property
+        /// </summary>
         public string Title
         {
             get { return (string)GetValue(TitleProperty); }
@@ -33,7 +40,9 @@ namespace ToDoCalendar.UserControls
 
         public static readonly DependencyProperty TitleProperty = DependencyProperty.Register("Title", typeof(string), typeof(Item));
 
-
+        /// <summary>
+        /// WPF specific method that sets a property
+        /// </summary>
         public string Time
         {
             get { return (string)GetValue(TimeProperty); }
@@ -42,7 +51,9 @@ namespace ToDoCalendar.UserControls
 
         public static readonly DependencyProperty TimeProperty = DependencyProperty.Register("Time", typeof(string), typeof(Item));
 
-
+        /// <summary>
+        /// WPF specific method that sets a property
+        /// </summary>
         public SolidColorBrush Color
         {
             get { return (SolidColorBrush)GetValue(ColorProperty); }
@@ -51,7 +62,9 @@ namespace ToDoCalendar.UserControls
 
         public static readonly DependencyProperty ColorProperty = DependencyProperty.Register("Color", typeof(SolidColorBrush), typeof(Item));
 
-
+        /// <summary>
+        /// WPF specific method that sets a property
+        /// </summary>
         public FontAwesome.WPF.FontAwesomeIcon Icon
         {
             get { return (FontAwesome.WPF.FontAwesomeIcon)GetValue(IconProperty); }
@@ -60,7 +73,9 @@ namespace ToDoCalendar.UserControls
 
         public static readonly DependencyProperty IconProperty = DependencyProperty.Register("Icon", typeof(FontAwesome.WPF.FontAwesomeIcon), typeof(Item));
 
-
+        /// <summary>
+        /// WPF specific method that sets a property
+        /// </summary>
         public FontAwesome.WPF.FontAwesomeIcon IconBell
         {
             get { return (FontAwesome.WPF.FontAwesomeIcon)GetValue(IconBellProperty); }
@@ -74,6 +89,11 @@ namespace ToDoCalendar.UserControls
             Console.WriteLine("Item Edit button clicked");
         }
 
+        /// <summary>
+        /// After clicking button associated with this method, activity is deleted from database
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ItemDeleteActivity(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             using (var context = new CalendarContext())
@@ -89,6 +109,11 @@ namespace ToDoCalendar.UserControls
             }
         }
 
+        /// <summary>
+        /// After clicking button associated with this method, activity Done state is toggled
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ItemCheckActivity(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             using (var context = new CalendarContext())

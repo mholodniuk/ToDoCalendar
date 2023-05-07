@@ -7,6 +7,13 @@ using System.Threading.Tasks;
 
 namespace ToDoCalendar
 {
+    /// <summary>
+    /// Class represents Activity entity
+    /// It stores basic properties needed for user interactions and database persistance
+    /// 
+    ///   This entity has many-to-one relationship with Date entity (on Date can contain many (or none) Activities, 
+    ///   but one Activity is assigned to only one Date)
+    /// </summary>
     public class Activity
     {
         public int ID { get; set; }

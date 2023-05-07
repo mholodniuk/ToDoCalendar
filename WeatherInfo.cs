@@ -48,16 +48,5 @@ namespace ToDoCalendar.WeatherInfo
                 Console.WriteLine("Nie udało się pobrać danych z API.");
             }
         }
-        static async Task Main()
-        {
-            await Program.GetWeatherInfo();
-            var forecast = Program.weatherForecast;
-            // Ustaw wartości tekstowe dla etykiety WeatherInfoProp
-            string windSpeed = $"{forecast.WindSpd} m/s";
-            string description = $"{forecast.Weather.Description}";
-            string temperature = $"{forecast.Temperature} °C";
-            Console.WriteLine($"Pogoda: {description}, {temperature}, prędkość wiatru: {windSpeed}");
-
-        }
     }
 }

@@ -39,13 +39,17 @@ namespace ToDoCalendar
             updateProps(currentDate);
             initToDos(currentDate);
             Console.WriteLine("Czeka");
-            Main().Wait();
+            await Main();
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         static async Task Main()
         {
             await Program.GetWeatherInfo();
             var forecast = Program.weatherForecast;
-            // Ustaw wartości tekstowe dla etykiety WeatherInfoProp
             string windSpeed = $"{forecast.WindSpd} m/s";
             string description = $"{forecast.Weather.Description}";
             string temperature = $"{forecast.Temperature} °C";

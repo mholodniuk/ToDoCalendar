@@ -5,18 +5,25 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using ToDoCalendar.Utils;
 using ToDoCalendar.UserControls;
 using System.Globalization;
 using ToDoCalendar.WeatherInfo;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 using System.Net.Http;
-using System.Runtime.CompilerServices;
-
+using Newtonsoft.Json;
 
 namespace ToDoCalendar
 {
+    public class MyClass
+    {
+        public static string MyCity;
+
+        static MyClass()
+        {
+            MyCity = "Wrocław";
+        }
+    }
+
     /// <summary>
     /// Main window class
     /// 
@@ -25,50 +32,60 @@ namespace ToDoCalendar
     public partial class MainWindow : Window
     {
         public DateTime currentDate;
+        public DateTime FullcurrentDate;
+
         CultureInfo polishCulture = new CultureInfo("pl-PL");
         WeatherForecast forecast1;
 
 
+        
         /// <summary>
         /// Constructor - responsible for initializing component and member fields and UI.
         /// </summary>
         public MainWindow()
         {
             InitializeComponent();
-            currentDate = DateTime.Now;
-            updateProps(currentDate);
-            initToDos(currentDate);
-            Console.WriteLine("Czeka");
-            await Main();
-        }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        static async Task Main()
+            Loaded += MainWindow_Loaded;
+            
+           // var result = GetWeatherInfo(); /// this assignment is needed in order to execute async method
+        }
+        
+
+        private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            await Program.GetWeatherInfo();
-            var forecast = Program.weatherForecast;
-            string windSpeed = $"{forecast.WindSpd} m/s";
-            string description = $"{forecast.Weather.Description}";
-            string temperature = $"{forecast.Temperature} °C";
-            Console.WriteLine($"Pogoda: {description}, {temperature}, prędkość wiatru: {windSpeed}");
+            forecast1 = await GetWeatherInfo("Wrocław");
+            try
+            {
+                currentDate = DateTime.Now;
+                initToDos(currentDate);
+                updateProps(currentDate);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Wystąpił błąd podczas pobierania prognozy pogody: " + ex.Message);
+            }
+            finally
+            {
+                this.Show();
+            }
+
+
 
         }
 
-
-        /// <summary>
-        /// Updates current state of the program (date information controls) based on currently selected date
-        /// </summary>
-        /// <param name="date"></param>
-        private void updateProps(DateTime date)
+        private async void CityName_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            CurrentDayProp.Text = date.Day.ToString();
-            CurrentDayStringProp.Text = date.ToString("dddd", polishCulture);
-            CurrentMonthStringProp.Text = date.ToString("MMM");
-        }
+            ComboBox comboBox = (ComboBox)sender;
+            ComboBoxItem selectedItem = (ComboBoxItem)comboBox.SelectedItem;
 
+            if (selectedItem != null && selectedItem.Content != null)
+            {
+                string cityName = selectedItem.Content.ToString();
+                forecast1 = await GetWeatherInfo(cityName);
+                updateProps(currentDate);
+            }
+        }
         /// <summary>
         /// Initializes list of todo activities based on currently selected date
         /// 
@@ -85,6 +102,59 @@ namespace ToDoCalendar
                 item.SetActivity(activity);
                 arrayOfActivities.Children.Add(item);
             }
+        }
+
+        public async Task<WeatherForecast> GetWeatherInfo(string city)
+        {
+            HttpClient client = new HttpClient();
+            var call = $"https://api.weatherbit.io/v2.0/forecast/daily?lang=pl&city={city}&country=Polska&key=72f159d74c034c0c8802ab9f590524e9";
+            var response = await client.GetAsync(call);
+            if (response.IsSuccessStatusCode)
+            {
+                var jsonString = await response.Content.ReadAsStringAsync();
+                forecast1 = JsonConvert.DeserializeObject<WeatherForecast>(jsonString);
+
+                Console.WriteLine($"Pogoda: {forecast1.data[0].weather.description}, data {forecast1.data[1].datetime}");
+
+                return forecast1;
+            }
+            else
+            {
+                Console.WriteLine("Nie udało się pobrać danych z API.");
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Updates current state of the program (date information controls) based on currently selected date
+        /// </summary>
+        /// <param name="date"></param>
+        private void updateProps(DateTime date)
+        {
+            CurrentDayProp.Text = date.Day.ToString();
+            CurrentDayStringProp.Text = date.ToString("dddd", polishCulture);
+            CurrentMonthStringProp.Text = date.ToString("MMM");
+            string formattedDate = currentDate.ToString("yyyy-MM-dd");
+            Console.WriteLine(formattedDate);
+            for(int i = 0; i < 15; i++)
+            {
+                string s1 = formattedDate;
+                string s2 = forecast1.data[i].datetime;
+                if (s1 == s2)
+                {
+                    WeatherInfo.Text = forecast1.data[i].weather.description;
+                    Temperature.Text = forecast1.data[i].high_temp + "°C";
+                    break;
+                }
+                else
+                {
+                    WeatherInfo.Text = "Brak danych";
+                    Temperature.Text = "";
+                }
+            }
+            
+            City.Text = "Miasto";
+            WeatherInf.Text = "Pogoda";
         }
 
         /// <summary>

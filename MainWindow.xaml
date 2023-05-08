@@ -8,6 +8,16 @@
         FontFamily="Trebuchet MS" mc:Ignorable="d" WindowStartupLocation="CenterScreen"
        Height="590" Width="900">
 
+    <Window.Resources>
+        <Style TargetType="ComboBox">
+            <Setter Property="Background" Value="#333333"/>
+        </Style>
+
+        <Style TargetType="ComboBoxItem">
+            <Setter Property="Background" Value="#333333"/>
+        </Style>
+    </Window.Resources>
+
     <Grid>
         <!--Grid Background-->
         <Grid>
@@ -37,13 +47,29 @@
                 <!--Titles-->
                 <StackPanel x:Name="Weather" Margin="30 45 30 10" Orientation="Horizontal">
                     <TextBlock x:Name="CurrentDayProp" FontSize="50" Foreground="#FFFFFF"/>
-                    <TextBlock x:Name="WeatherInfo" />
+
 
 
                     <StackPanel Grid.Column="1" Margin="10 0 0 0" VerticalAlignment="Center">
                         <TextBlock x:Name="CurrentMonthStringProp" Foreground="#FFFFFF" FontSize="24"/>
                         <TextBlock x:Name="CurrentDayStringProp" Foreground="#FFFFFF" FontSize="14"/>
                     </StackPanel>
+                    <StackPanel Grid.Column="2" Margin="15 0 0 0" VerticalAlignment="Center">
+                        <TextBlock x:Name="Temperature" FontSize="30" Foreground="#FFFFFF"/>
+                        <TextBlock x:Name="WeatherInf" Foreground="#FFFFFF" FontSize="15"/>
+                        <TextBlock x:Name="WeatherInfo" Foreground="#FFFFFF" FontSize="15"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2" Margin="10 0 0 0" VerticalAlignment="Center">
+                        <TextBlock x:Name="City" Foreground="White" FontSize="15"/>
+                        
+                        <ComboBox x:Name="CityName"  FontSize="18" SelectionChanged="CityName_SelectionChanged">
+                            <ComboBoxItem IsSelected="True">Wrocław</ComboBoxItem>
+                            <ComboBoxItem>Warszawa</ComboBoxItem>
+                            <ComboBoxItem>Poznań</ComboBoxItem>
+                            <ComboBoxItem>Kraków</ComboBoxItem>
+                        </ComboBox>
+                    </StackPanel>
+
                 </StackPanel>
                 
                 <!--Add Notes-->

@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:us="clr-namespace:ToDoCalendar.UserControls"
         FontFamily="Trebuchet MS" mc:Ignorable="d" WindowStartupLocation="CenterScreen"
-       Height="590" Width="900">
+       Height="560" Width="1000">
 
     <Window.Resources>
         <Style TargetType="ComboBox">
@@ -47,7 +47,6 @@
                 <!--Titles-->
                 <StackPanel x:Name="Weather" Margin="30 45 30 10" Orientation="Horizontal">
                     <TextBlock x:Name="CurrentDayProp" FontSize="50" Foreground="#FFFFFF"/>
-
 
 
                     <StackPanel Grid.Column="1" Margin="10 0 0 0" VerticalAlignment="Center">

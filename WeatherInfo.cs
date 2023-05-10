@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 
 /// <summary>
-/// TODO: fill all needed fields
+/// Represenets data received from the api
 /// </summary>
 namespace ToDoCalendar.WeatherInfo
 {
@@ -9,8 +9,6 @@ namespace ToDoCalendar.WeatherInfo
     {
         public string city_name { get; set; }
         public List<Data> data { get; set; }
-
-
     }
 
     public class Data

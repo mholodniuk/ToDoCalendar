@@ -84,11 +84,6 @@ namespace ToDoCalendar.UserControls
 
         public static readonly DependencyProperty IconBellProperty = DependencyProperty.Register("IconBell", typeof(FontAwesome.WPF.FontAwesomeIcon), typeof(Item));
 
-        private void ItemEditActivity(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            Console.WriteLine("Item Edit button clicked");
-        }
-
         /// <summary>
         /// After clicking button associated with this method, activity is deleted from database
         /// </summary>

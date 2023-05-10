@@ -54,7 +54,6 @@
                     <StackPanel>
 
                         <local:MenuButton Icon="Check" Caption="Check" MouseDoubleClick="ItemCheckActivity"/>
-                        <local:MenuButton Icon="Pencil" Caption="Edit" MouseDoubleClick="ItemEditActivity"/>
                         <local:MenuButton Icon="Trash" Caption="Delete" MouseDoubleClick="ItemDeleteActivity"/>
 
                     </StackPanel>

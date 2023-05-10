@@ -32,12 +32,9 @@ namespace ToDoCalendar
     public partial class MainWindow : Window
     {
         public DateTime currentDate;
-        public DateTime FullcurrentDate;
 
         CultureInfo polishCulture = new CultureInfo("pl-PL");
         WeatherForecast forecast1;
-
-
         
         /// <summary>
         /// Constructor - responsible for initializing component and member fields and UI.
@@ -47,11 +44,14 @@ namespace ToDoCalendar
             InitializeComponent();
 
             Loaded += MainWindow_Loaded;
-            
-           // var result = GetWeatherInfo(); /// this assignment is needed in order to execute async method
         }
         
 
+        /// <summary>
+        /// Performs asynchronous main window loading action
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             forecast1 = await GetWeatherInfo("Wrocław");
@@ -69,11 +69,13 @@ namespace ToDoCalendar
             {
                 this.Show();
             }
-
-
-
         }
 
+        /// <summary>
+        /// Updates current weather forecast when user changed value in dropdown
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void CityName_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
@@ -104,6 +106,11 @@ namespace ToDoCalendar
             }
         }
 
+        /// <summary>
+        /// Performs asynchronous api call to the weather api
+        /// </summary>
+        /// <param name="city"></param>
+        /// <returns></returns>
         public async Task<WeatherForecast> GetWeatherInfo(string city)
         {
             HttpClient client = new HttpClient();
@@ -113,9 +120,6 @@ namespace ToDoCalendar
             {
                 var jsonString = await response.Content.ReadAsStringAsync();
                 forecast1 = JsonConvert.DeserializeObject<WeatherForecast>(jsonString);
-
-                Console.WriteLine($"Pogoda: {forecast1.data[0].weather.description}, data {forecast1.data[1].datetime}");
-
                 return forecast1;
             }
             else
@@ -135,7 +139,7 @@ namespace ToDoCalendar
             CurrentDayStringProp.Text = date.ToString("dddd", polishCulture);
             CurrentMonthStringProp.Text = date.ToString("MMM");
             string formattedDate = currentDate.ToString("yyyy-MM-dd");
-            Console.WriteLine(formattedDate);
+
             for(int i = 0; i < 15; i++)
             {
                 string s1 = formattedDate;

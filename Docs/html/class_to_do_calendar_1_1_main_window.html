@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.6"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ToDoCalendar: ToDoCalendar.MainWindow Class Reference</title>
+<title>ToDo Calendar: ToDoCalendar.MainWindow Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ToDoCalendar
+   <div id="projectname">ToDo Calendar
    </div>
   </td>
  </tr>
@@ -98,6 +98,9 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>MainWindow</b> ()</td></tr>
 <tr class="memdesc:a067247e0fcdcce8597613b26d275b022"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor - responsible for initializing component and member fields and UI. <br /></td></tr>
 <tr class="separator:a067247e0fcdcce8597613b26d275b022"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a11353549bd6f378d48f9e63ac800f3"><td class="memItemLeft" align="right" valign="top">async Task&lt; <a class="el" href="class_to_do_calendar_1_1_weather_info_1_1_weather_forecast.html">WeatherForecast</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_to_do_calendar_1_1_main_window.html#a5a11353549bd6f378d48f9e63ac800f3">GetWeatherInfo</a> (string city)</td></tr>
+<tr class="memdesc:a5a11353549bd6f378d48f9e63ac800f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs asynchronous api call to the weather api.  <br /></td></tr>
+<tr class="separator:a5a11353549bd6f378d48f9e63ac800f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adce2739f6ca934a793bcd80a630100ee"><td class="memItemLeft" align="right" valign="top">IList&lt; Activity &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_to_do_calendar_1_1_main_window.html#adce2739f6ca934a793bcd80a630100ee">getAllActivities</a> (DateTime ChosenDate)</td></tr>
 <tr class="memdesc:adce2739f6ca934a793bcd80a630100ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves all activities found in database on given date and returns them.  <br /></td></tr>
 <tr class="separator:adce2739f6ca934a793bcd80a630100ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -116,12 +119,18 @@ DateTime&#160;</td><td class="memItemRight" valign="bottom"><b>currentDate</b></
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a7ddb9dea174fbaf46ce13a8190e1946e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_to_do_calendar_1_1_main_window.html#a7ddb9dea174fbaf46ce13a8190e1946e">updateProps</a> (DateTime date)</td></tr>
-<tr class="memdesc:a7ddb9dea174fbaf46ce13a8190e1946e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates current state of the program (date information controls) based on currently selected date.  <br /></td></tr>
-<tr class="separator:a7ddb9dea174fbaf46ce13a8190e1946e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac05d19da57046c70c9bc46fc74dfdfb1"><td class="memItemLeft" align="right" valign="top">async void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_to_do_calendar_1_1_main_window.html#ac05d19da57046c70c9bc46fc74dfdfb1">MainWindow_Loaded</a> (object sender, RoutedEventArgs e)</td></tr>
+<tr class="memdesc:ac05d19da57046c70c9bc46fc74dfdfb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs asynchronous main window loading action.  <br /></td></tr>
+<tr class="separator:ac05d19da57046c70c9bc46fc74dfdfb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa38f41a0df5a9341a63fb7ea21fef115"><td class="memItemLeft" align="right" valign="top">async void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_to_do_calendar_1_1_main_window.html#aa38f41a0df5a9341a63fb7ea21fef115">CityName_SelectionChanged</a> (object sender, SelectionChangedEventArgs e)</td></tr>
+<tr class="memdesc:aa38f41a0df5a9341a63fb7ea21fef115"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates current weather forecast when user changed value in dropdown.  <br /></td></tr>
+<tr class="separator:aa38f41a0df5a9341a63fb7ea21fef115"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08f414efb7960730422e62c8a183cb01"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_to_do_calendar_1_1_main_window.html#a08f414efb7960730422e62c8a183cb01">initToDos</a> (DateTime ChosenDate)</td></tr>
 <tr class="memdesc:a08f414efb7960730422e62c8a183cb01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes list of todo activities based on currently selected date.  <br /></td></tr>
 <tr class="separator:a08f414efb7960730422e62c8a183cb01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ddb9dea174fbaf46ce13a8190e1946e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_to_do_calendar_1_1_main_window.html#a7ddb9dea174fbaf46ce13a8190e1946e">updateProps</a> (DateTime date)</td></tr>
+<tr class="memdesc:a7ddb9dea174fbaf46ce13a8190e1946e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates current state of the program (date information controls) based on currently selected date.  <br /></td></tr>
+<tr class="separator:a7ddb9dea174fbaf46ce13a8190e1946e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9da7d8f7a30400a9b206ae6232ee3b62"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_to_do_calendar_1_1_main_window.html#a9da7d8f7a30400a9b206ae6232ee3b62">Calendar_OnSelectedDatesChanged</a> (object sender, SelectionChangedEventArgs e)</td></tr>
 <tr class="memdesc:a9da7d8f7a30400a9b206ae6232ee3b62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles current date change (when user clicks on the calendar component)  <br /></td></tr>
 <tr class="separator:a9da7d8f7a30400a9b206ae6232ee3b62"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -137,8 +146,11 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:adce49911a9c3c0328cd66bcbb8bb10a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_to_do_calendar_1_1_main_window.html#adce49911a9c3c0328cd66bcbb8bb10a2">txtNote_TextChanged</a> (object sender, TextChangedEventArgs e)</td></tr>
 <tr class="memdesc:adce49911a9c3c0328cd66bcbb8bb10a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">UI utility method.  <br /></td></tr>
 <tr class="separator:adce49911a9c3c0328cd66bcbb8bb10a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76f0fe8ce31c78d50d3b4a64b0f8901b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_to_do_calendar_1_1_main_window.html#a76f0fe8ce31c78d50d3b4a64b0f8901b">txtTime_TextChanged</a> (object sender, TextChangedEventArgs e)</td></tr>
-<tr class="memdesc:a76f0fe8ce31c78d50d3b4a64b0f8901b"><td class="mdescLeft">&#160;</td><td class="mdescRight">UI utility method.  <br /></td></tr>
+<tr class="memitem:a2318102794f32fd7cdbc2330a1ba0ba2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_to_do_calendar_1_1_main_window.html#a2318102794f32fd7cdbc2330a1ba0ba2">ValidateTime</a> (string time)</td></tr>
+<tr class="memdesc:a2318102794f32fd7cdbc2330a1ba0ba2"><td class="mdescLeft">&#160;</td><td class="mdescRight">UI utility method.  <br /></td></tr>
+<tr class="separator:a2318102794f32fd7cdbc2330a1ba0ba2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76f0fe8ce31c78d50d3b4a64b0f8901b"><td class="memItemLeft" align="right" valign="top"><a id="a76f0fe8ce31c78d50d3b4a64b0f8901b" name="a76f0fe8ce31c78d50d3b4a64b0f8901b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>txtTime_TextChanged</b> (object sender, TextChangedEventArgs e)</td></tr>
 <tr class="separator:a76f0fe8ce31c78d50d3b4a64b0f8901b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
@@ -146,6 +158,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a82aa3561c39a0e95583c17061b2a1be0"><td class="memItemLeft" align="right" valign="top"><a id="a82aa3561c39a0e95583c17061b2a1be0" name="a82aa3561c39a0e95583c17061b2a1be0"></a>
 CultureInfo&#160;</td><td class="memItemRight" valign="bottom"><b>polishCulture</b> = new CultureInfo(&quot;pl-PL&quot;)</td></tr>
 <tr class="separator:a82aa3561c39a0e95583c17061b2a1be0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed3ba9421267f86ccc0f47438888bcb2"><td class="memItemLeft" align="right" valign="top"><a id="aed3ba9421267f86ccc0f47438888bcb2" name="aed3ba9421267f86ccc0f47438888bcb2"></a>
+<a class="el" href="class_to_do_calendar_1_1_weather_info_1_1_weather_forecast.html">WeatherForecast</a>&#160;</td><td class="memItemRight" valign="bottom"><b>forecast1</b></td></tr>
+<tr class="separator:aed3ba9421267f86ccc0f47438888bcb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Main window class. </p>
@@ -280,6 +295,51 @@ CultureInfo&#160;</td><td class="memItemRight" valign="bottom"><b>polishCulture<
 
 </div>
 </div>
+<a id="aa38f41a0df5a9341a63fb7ea21fef115" name="aa38f41a0df5a9341a63fb7ea21fef115"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa38f41a0df5a9341a63fb7ea21fef115">&#9670;&#160;</a></span>CityName_SelectionChanged()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async void ToDoCalendar.MainWindow.CityName_SelectionChanged </td>
+          <td>(</td>
+          <td class="paramtype">object&#160;</td>
+          <td class="paramname"><em>sender</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SelectionChangedEventArgs&#160;</td>
+          <td class="paramname"><em>e</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Updates current weather forecast when user changed value in dropdown. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sender</td><td></td></tr>
+    <tr><td class="paramname">e</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="adce2739f6ca934a793bcd80a630100ee" name="adce2739f6ca934a793bcd80a630100ee"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adce2739f6ca934a793bcd80a630100ee">&#9670;&#160;</a></span>getAllActivities()</h2>
 
@@ -338,6 +398,33 @@ CultureInfo&#160;</td><td class="memItemRight" valign="bottom"><b>polishCulture<
   <table class="params">
     <tr><td class="paramname">selectedDate</td><td></td></tr>
     <tr><td class="paramname">context</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a5a11353549bd6f378d48f9e63ac800f3" name="a5a11353549bd6f378d48f9e63ac800f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a11353549bd6f378d48f9e63ac800f3">&#9670;&#160;</a></span>GetWeatherInfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; <a class="el" href="class_to_do_calendar_1_1_weather_info_1_1_weather_forecast.html">WeatherForecast</a> &gt; ToDoCalendar.MainWindow.GetWeatherInfo </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>city</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Performs asynchronous api call to the weather api. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">city</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -470,8 +557,8 @@ CultureInfo&#160;</td><td class="memItemRight" valign="bottom"><b>polishCulture<
 
 </div>
 </div>
-<a id="adce49911a9c3c0328cd66bcbb8bb10a2" name="adce49911a9c3c0328cd66bcbb8bb10a2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adce49911a9c3c0328cd66bcbb8bb10a2">&#9670;&#160;</a></span>txtNote_TextChanged()</h2>
+<a id="ac05d19da57046c70c9bc46fc74dfdfb1" name="ac05d19da57046c70c9bc46fc74dfdfb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac05d19da57046c70c9bc46fc74dfdfb1">&#9670;&#160;</a></span>MainWindow_Loaded()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -480,7 +567,7 @@ CultureInfo&#160;</td><td class="memItemRight" valign="bottom"><b>polishCulture<
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void ToDoCalendar.MainWindow.txtNote_TextChanged </td>
+          <td class="memname">async void ToDoCalendar.MainWindow.MainWindow_Loaded </td>
           <td>(</td>
           <td class="paramtype">object&#160;</td>
           <td class="paramname"><em>sender</em>, </td>
@@ -488,7 +575,7 @@ CultureInfo&#160;</td><td class="memItemRight" valign="bottom"><b>polishCulture<
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">TextChangedEventArgs&#160;</td>
+          <td class="paramtype">RoutedEventArgs&#160;</td>
           <td class="paramname"><em>e</em>&#160;</td>
         </tr>
         <tr>
@@ -504,7 +591,7 @@ CultureInfo&#160;</td><td class="memItemRight" valign="bottom"><b>polishCulture<
 </table>
 </div><div class="memdoc">
 
-<p>UI utility method. </p>
+<p>Performs asynchronous main window loading action. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">sender</td><td></td></tr>
@@ -515,8 +602,8 @@ CultureInfo&#160;</td><td class="memItemRight" valign="bottom"><b>polishCulture<
 
 </div>
 </div>
-<a id="a76f0fe8ce31c78d50d3b4a64b0f8901b" name="a76f0fe8ce31c78d50d3b4a64b0f8901b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a76f0fe8ce31c78d50d3b4a64b0f8901b">&#9670;&#160;</a></span>txtTime_TextChanged()</h2>
+<a id="adce49911a9c3c0328cd66bcbb8bb10a2" name="adce49911a9c3c0328cd66bcbb8bb10a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adce49911a9c3c0328cd66bcbb8bb10a2">&#9670;&#160;</a></span>txtNote_TextChanged()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -525,7 +612,7 @@ CultureInfo&#160;</td><td class="memItemRight" valign="bottom"><b>polishCulture<
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void ToDoCalendar.MainWindow.txtTime_TextChanged </td>
+          <td class="memname">void ToDoCalendar.MainWindow.txtNote_TextChanged </td>
           <td>(</td>
           <td class="paramtype">object&#160;</td>
           <td class="paramname"><em>sender</em>, </td>
@@ -588,6 +675,41 @@ CultureInfo&#160;</td><td class="memItemRight" valign="bottom"><b>polishCulture<
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">date</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2318102794f32fd7cdbc2330a1ba0ba2" name="a2318102794f32fd7cdbc2330a1ba0ba2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2318102794f32fd7cdbc2330a1ba0ba2">&#9670;&#160;</a></span>ValidateTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ToDoCalendar.MainWindow.ValidateTime </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>time</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>UI utility method. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sender</td><td></td></tr>
+    <tr><td class="paramname">e</td><td></td></tr>
   </table>
   </dd>
 </dl>

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['generatedinternaltypehelper_0',['GeneratedInternalTypeHelper',['../class_xaml_generated_namespace_1_1_generated_internal_type_helper.html',1,'XamlGeneratedNamespace']]]
+  ['mainwindow_0',['MainWindow',['../class_to_do_calendar_1_1_main_window.html',1,'ToDoCalendar']]],
+  ['myclass_1',['MyClass',['../class_to_do_calendar_1_1_my_class.html',1,'ToDoCalendar']]]
 ];
